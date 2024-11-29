@@ -1,0 +1,80 @@
+books
+{
+  "_id": "ObjectId",
+  "title": "string",                // Название книги
+  "authorIds": ["ObjectId"],        // ID авторов
+  "genres": ["string"],             // Жанры (например, ["Фантастика", "Драма"])
+  "description": "string",          // Описание книги
+  "publicationDate": "Date",        // Дата публикации
+  "isbn": "string",                 // ISBN
+  "language": "string",             // Язык книги
+  "pages": "number",                // Количество страниц
+  "coverImageUrl": "string",        // Ссылка на обложку
+  "fileUrl": "string",              // Ссылка на файл книги
+  "ratings": {
+    "average": "number",            // Средний рейтинг
+    "count": "number"               // Количество оценок
+  },
+  "createdAt": "Date",              // Дата добавления записи
+  "updatedAt": "Date"               // Дата последнего обновления
+}
+
+authors
+{
+  "_id": "ObjectId",
+  "name": "string",                 // Имя автора
+  "birthDate": "Date",              // Дата рождения
+  "deathDate": "Date",              // Дата смерти (если применимо)
+  "nationality": "string",          // Национальность
+  "bio": "string",                  // Биография автора
+  "photoUrl": "string",             // Ссылка на фотографию
+  "books": ["ObjectId"],            // ID книг автора
+  "createdAt": "Date",              // Дата добавления записи
+  "updatedAt": "Date"               // Дата последнего обновления
+}
+
+users
+{
+  "_id": "ObjectId",
+  "username": "string",             // Имя пользователя
+  "email": "string",                // Email
+  "passwordHash": "string",         // Хеш пароля
+  "favorites": ["ObjectId"],        // Список избранных книг
+  "reviews": ["ObjectId"],          // ID отзывов пользователя
+  "createdAt": "Date",              // Дата регистрации
+  "updatedAt": "Date"               // Дата последнего обновления профиля
+}
+
+readingStatus
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId",             // ID пользователя
+  "bookId": "ObjectId",             // ID книги
+  "status": "string",               // Статус: "reading", "completed", "wantToRead"
+  "updatedAt": "Date"               // Дата последнего обновления статуса
+}
+
+reviews
+{
+  "_id": "ObjectId",
+  "bookId": "ObjectId",             // ID книги
+  "userId": "ObjectId",             // ID пользователя
+  "rating": "number",               // Оценка (например, от 1 до 5)
+  "comment": "string",              // Текст отзыва
+  "createdAt": "Date",              // Дата добавления отзыва
+  "updatedAt": "Date"               // Дата последнего изменения
+}
+
+Связи между коллекциями
+books → authors:
+Связь "многие ко многим" через массив authorIds.
+
+users → readingStatuses:
+Связь "один ко многим": каждый пользователь имеет несколько записей в readingStatuses.
+
+books → readingStatuses:
+Связь "один ко многим": каждая книга может иметь несколько записей о статусах чтения.
+
+users → reviews и books → reviews:
+Связь "один ко многим": пользователь и книга могут иметь несколько отзывов.
+
