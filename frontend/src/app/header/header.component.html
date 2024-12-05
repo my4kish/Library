@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="" >Library</a>
+  <span class="space"></span>
+
+  <div *ngIf="isAuth; else isNotAuth" >
+    <button mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+    <button routerLink="/app-admin" mat-icon-button *ngIf="isAdmin">
+      <mat-icon>admin_panel_settings</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+
+  <ng-template #isNotAuth>
+    <div class="auth">
+      <button mat-stroked-button class="" routerLink="/register" >Регистрация</button>
+      <button mat-stroked-button class="" routerLink="/login" >Войти</button>
+    </div>
+  </ng-template>
+  
+  
+</mat-toolbar>
