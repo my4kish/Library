@@ -2,15 +2,22 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
+  <a routerLink="" >Library</a>
   <span class="space"></span>
+
   <button mat-icon-button>
     <mat-icon>add</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <button routerLink="/app-admin" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>admin_panel_settings</mat-icon>
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>person</mat-icon>
   </button>
+
+  <!-- <div class="auth">
+    <button mat-stroked-button class="" routerLink="/register" >Регистрация</button>
+    <button mat-stroked-button class="" routerLink="/login" >Войти</button>
+  </div> -->
+  
 </mat-toolbar>

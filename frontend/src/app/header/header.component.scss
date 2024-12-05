@@ -1,3 +1,15 @@
-.space{
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.space {
   flex: 1 1 auto;
+}
+
+.auth {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-right: 40px;
 }
