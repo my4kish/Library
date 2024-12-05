@@ -5,19 +5,24 @@
   <a routerLink="" >Library</a>
   <span class="space"></span>
 
-  <button mat-icon-button>
-    <mat-icon>add</mat-icon>
-  </button>
-  <button routerLink="/app-admin" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>admin_panel_settings</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>person</mat-icon>
-  </button>
+  <div *ngIf="isAuth; else isNotAuth" >
+    <button mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+    <button routerLink="/app-admin" mat-icon-button *ngIf="isAdmin">
+      <mat-icon>admin_panel_settings</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
 
-  <!-- <div class="auth">
-    <button mat-stroked-button class="" routerLink="/register" >Регистрация</button>
-    <button mat-stroked-button class="" routerLink="/login" >Войти</button>
-  </div> -->
+  <ng-template #isNotAuth>
+    <div class="auth">
+      <button mat-stroked-button class="" routerLink="/register" >Регистрация</button>
+      <button mat-stroked-button class="" routerLink="/login" >Войти</button>
+    </div>
+  </ng-template>
+  
   
 </mat-toolbar>
