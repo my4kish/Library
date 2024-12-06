@@ -15,6 +15,6 @@ import { NgIf } from '@angular/common';
   imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, RouterModule, NgIf],
 })
 export class HeaderComponent{
-  public readonly isAuth = true;
+  public readonly isAuth = false;
   public readonly isAdmin = true;
 }

@@ -4,6 +4,9 @@ body {
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
   margin-top: 150px;
 }
 
@@ -26,4 +29,13 @@ form {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.invalid-message {
+  font-size: 12px;
+  color: red;
+}
+
+.btn:disabled {
+  background-color: grey;
 }
