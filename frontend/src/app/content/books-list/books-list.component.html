@@ -1,7 +1,10 @@
-
 <div class="books-list">
+  <mat-form-field class="example-full-width">
+    <mat-label>Book</mat-label>
+    <input type="text" matInput placeholder="Name" [(ngModel)]="term" >
+  </mat-form-field>
   <div class="book-card">
-    <div *ngFor="let item of booksApiService.booksSig() | paginate:{itemsPerPage:6, currentPage:page, totalItems:totalLength} ">
+    <div *ngFor="let item of booksApiService.booksSig() | paginate:{itemsPerPage:5, currentPage:page, totalItems:totalLength} | filter:term ">
       <app-book-card [book]="item" (deleteBook)="deleteBook($event)" ></app-book-card>
     </div>
   </div>

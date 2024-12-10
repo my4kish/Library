@@ -1,7 +1,11 @@
 
 <div class="authors-list">
+  <mat-form-field class="example-full-width">
+    <mat-label>Author</mat-label>
+    <input type="text" matInput placeholder="Name" [(ngModel)]="term" >
+  </mat-form-field>
   <div class="authors-card">
-    <div *ngFor="let item of authorsService.authorSubject | async ">
+    <div *ngFor="let item of authors | paginate:{itemsPerPage:6, currentPage:page, totalItems:totalLength} | filter: term">
       <app-author-card [author]="item" (deleteAuthor)="deleteAuthor($event)"></app-author-card>
     </div>
   </div>

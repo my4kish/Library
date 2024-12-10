@@ -9,5 +9,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ]
 };

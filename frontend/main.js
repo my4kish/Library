@@ -1,33 +1,31 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
-let mainWindow;
+function createWindow() {
+  const win = new BrowserWindow({ width: 800, height: 800 });
 
-app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true,
-      nodeIntegration: false, // отключите для безопасности
-    },
+  // Загрузка основного файла приложения
+  win.loadFile('dist/frontend/browser/index.html');
+
+  // Обработка ошибки загрузки
+  win.webContents.on('did-fail-load', () => {
+    win.loadFile('dist/frontend/browser/index.html');
   });
+}
 
-  mainWindow.loadURL(`file://${__dirname}/dist/frontend/browser/index.html#/my-route`);
-  mainWindow.on('closed', () => {
-    mainWindow = null;
+app.whenReady().then(() => {
+  createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
   });
 });
 
+// Закрытие приложения на macOS
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
   }
 });

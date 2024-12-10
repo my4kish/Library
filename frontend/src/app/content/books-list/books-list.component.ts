@@ -6,6 +6,9 @@ import { Books } from "../../types/books.interface";
 import { NgFor } from "@angular/common";
 import { AuthorsApiService } from "../../services/authorsApi.service";
 import { NgxPaginationModule } from "ngx-pagination";
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { NgxSearchFilterModule } from "ngx-search-filter";
 
 @Component({
   selector: 'app-books-list',
@@ -17,10 +20,13 @@ import { NgxPaginationModule } from "ngx-pagination";
     FormsModule, 
     NgFor,
     NgxPaginationModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    NgxSearchFilterModule,
   ],
 })
 export class BooksListComponent implements OnInit{
-
+  term = '';
   public readonly booksApiService = inject(BooksApiService);
   totalLength: any;
   page: number = 1;

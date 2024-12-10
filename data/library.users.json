@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "675896103b7333fc3a4134ae"
+  },
+  "username": "arlan",
+  "email": "arlan.amirov@mail.ru",
+  "password": "123123",
+  "favorites": [],
+  "reviews": [],
+  "createdAt": {
+    "$date": "2024-12-10T19:27:12.891Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T19:27:12.891Z"
+  },
+  "__v": 0
+}]
