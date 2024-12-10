@@ -1,0 +1,49 @@
+
+
+<div class="dialogForm">
+  <h1>
+    Book form
+  </h1>
+
+  <form [formGroup]="bookData" (ngSubmit)="onSubmit()" >
+
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <mat-select formControlName="authorId">
+        <mat-option *ngFor="let item of authorsService.authorSubject | async" [value]="item._id"> {{item.name}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Genre</mat-label>
+      <input matInput formControlName="genres">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>language</mat-label>
+      <input matInput formControlName="language">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>pages</mat-label>
+      <input type="number" matInput formControlName="pages">
+    </mat-form-field>
+
+    <input type="file" (change)="onFileSelected($event)"/>
+
+    <button mat-raised-button color="success" type="submit" >
+      Submit
+    </button>
+
+  </form>
+</div>

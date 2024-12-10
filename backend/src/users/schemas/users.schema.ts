@@ -10,7 +10,7 @@ export class User extends Document {
   email: string;
 
   @Prop({ required: true })
-  passwordHash: string;
+  password: string;
 
   @Prop({ type: [Types.ObjectId], ref: 'Book' })
   favorites: Types.ObjectId[];

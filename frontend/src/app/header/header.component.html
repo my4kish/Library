@@ -1,18 +1,21 @@
 <mat-toolbar color="primary" class="toolbar">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <!-- <button mat-icon-button *ngIf="this.authService.isAuthSig()">
     <mat-icon>menu</mat-icon>
-  </button>
+  </button> -->
   <a routerLink="" >Library</a>
   <span class="space"></span>
 
-  <div *ngIf="isAuth; else isNotAuth" >
-    <button mat-icon-button>
-      <mat-icon>add</mat-icon>
+  <div *ngIf="this.authService.isAuthenticated(); else isNotAuth" >
+    <button mat-icon-button (click)="openAuthorDialog()" >
+      <mat-icon >person_add</mat-icon>
     </button>
-    <button routerLink="/app-admin" mat-icon-button *ngIf="isAdmin">
+    <button mat-icon-button (click)="openBookDialog()" >
+      <mat-icon >note_add</mat-icon>
+    </button>
+    <button routerLink="/app-admin" mat-icon-button *ngIf="this.authService.isAdmin()">
       <mat-icon>admin_panel_settings</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="logout()">
       <mat-icon>logout</mat-icon>
     </button>
   </div>

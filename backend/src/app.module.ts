@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { AuthorsModule } from './authors/authors.module';
 import { ReviewsModule } from './reviews/reviews.module';
 import { ReadingStatusModule } from './readingStatus/readingStatus.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [MongooseModule.forRoot('mongodb://localhost:27017/library'),
@@ -15,6 +16,7 @@ import { ReadingStatusModule } from './readingStatus/readingStatus.module';
     AuthorsModule,
     ReviewsModule,
     ReadingStatusModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

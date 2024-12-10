@@ -1,0 +1,12 @@
+
+<div class="authors-list">
+  <div class="authors-card">
+    <div *ngFor="let item of authorsService.authorSubject | async ">
+      <app-author-card [author]="item" (deleteAuthor)="deleteAuthor($event)"></app-author-card>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <pagination-controls (pageChange)="page = $event" ></pagination-controls>
+</div>

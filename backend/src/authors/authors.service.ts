@@ -38,9 +38,14 @@ export class AuthorsService {
   }
 
   async delete(id: string): Promise<void> {
+    // Удаление всех книг, связанных с автором
+    await this.authorModel.db.collection('books').deleteMany({ authorId: id });
+  
+    // Удаление самого автора
     const result = await this.authorModel.findByIdAndDelete(id).exec();
     if (!result) {
       throw new NotFoundException(`Author with ID "${id}" not found`);
     }
   }
+  
 }

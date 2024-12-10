@@ -1,0 +1,104 @@
+[
+  {
+    "collection": "books",
+    "documents": [
+      {
+        "_id": { "$oid": "648a1b2c3d4e5f6789012345" },
+        "title": "The Great Adventure",
+        "authorId": [
+          { "$oid": "648a2b3c4d5e6f7890123456" },
+          { "$oid": "648a3b4c5d6e7f8901234567" }
+        ],
+        "genres": ["Adventure", "Drama"],
+        "description": "An epic tale of courage and friendship.",
+        "publicationDate": { "$date": "2020-05-15T00:00:00Z" },
+        "language": "English",
+        "pages": 350,
+        "coverImageUrl": "https://example.com/images/great_adventure.jpg",
+        "fileUrl": "https://example.com/files/great_adventure.pdf",
+        "ratings": {
+          "average": 4.5,
+          "count": 200
+        },
+        "createdAt": { "$date": "2023-12-01T12:00:00Z" },
+        "updatedAt": { "$date": "2023-12-01T12:00:00Z" }
+      }
+    ]
+  },
+  {
+    "collection": "authors",
+    "documents": [
+      {
+        "_id": { "$oid": "648a2b3c4d5e6f7890123456" },
+        "name": "John Smith",
+        "birthDate": { "$date": "1980-07-20T00:00:00Z" },
+        "deathDate": null,
+        "nationality": "American",
+        "bio": "John Smith is an award-winning author known for his compelling stories.",
+        "photoUrl": "https://example.com/images/john_smith.jpg",
+        "books": [
+          { "$oid": "648a1b2c3d4e5f6789012345" }
+        ],
+        "createdAt": { "$date": "2023-12-01T12:00:00Z" },
+        "updatedAt": { "$date": "2023-12-01T12:00:00Z" }
+      },
+      {
+        "_id": { "$oid": "648a3b4c5d6e7f8901234567" },
+        "name": "Jane Doe",
+        "birthDate": { "$date": "1975-04-12T00:00:00Z" },
+        "deathDate": null,
+        "nationality": "British",
+        "bio": "Jane Doe specializes in adventure novels with rich characters.",
+        "photoUrl": "https://example.com/images/jane_doe.jpg",
+        "books": [
+          { "$oid": "648a1b2c3d4e5f6789012345" }
+        ],
+        "createdAt": { "$date": "2023-12-01T12:00:00Z" },
+        "updatedAt": { "$date": "2023-12-01T12:00:00Z" }
+      }
+    ]
+  },
+  {
+    "collection": "users",
+    "documents": [
+      {
+        "_id": { "$oid": "648a4b5c6d7e8f9012345678" },
+        "username": "booklover123",
+        "email": "booklover123@example.com",
+        "passwordHash": "hashedpassword123",
+        "favorites": [
+          { "$oid": "648a1b2c3d4e5f6789012345" }
+        ],
+        "reviews": [],
+        "createdAt": { "$date": "2023-12-01T12:00:00Z" },
+        "updatedAt": { "$date": "2023-12-01T12:00:00Z" }
+      }
+    ]
+  },
+  {
+    "collection": "readingStatus",
+    "documents": [
+      {
+        "_id": { "$oid": "648a5b6c7d8e9f0123456789" },
+        "userId": { "$oid": "648a4b5c6d7e8f9012345678" },
+        "bookId": { "$oid": "648a1b2c3d4e5f6789012345" },
+        "status": "reading",
+        "updatedAt": { "$date": "2023-12-01T12:00:00Z" }
+      }
+    ]
+  },
+  {
+    "collection": "reviews",
+    "documents": [
+      {
+        "_id": { "$oid": "648a6b7c8d9e0f1234567890" },
+        "bookId": { "$oid": "648a1b2c3d4e5f6789012345" },
+        "userId": { "$oid": "648a4b5c6d7e8f9012345678" },
+        "rating": 5,
+        "comment": "Absolutely loved this book! A must-read for adventure lovers.",
+        "createdAt": { "$date": "2023-12-01T12:00:00Z" },
+        "updatedAt": { "$date": "2023-12-01T12:00:00Z" }
+      }
+    ]
+  }
+]

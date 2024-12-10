@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router';
-import { BooksListComponent } from './books-list/books-list.component';
+import { BooksListComponent } from './content/books-list/books-list.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { authGuard } from './guards/auth.guard';
+import { ContentComponent } from './content/content.component';
 
 export const routes: Routes = [
   {
     path:'',
-    component: BooksListComponent,
+    component: ContentComponent,
+    canActivate: [authGuard()]
   },
   {
     path:'login',
@@ -20,6 +23,7 @@ export const routes: Routes = [
   {
     path:'app-admin',
     component: AdminComponent,
+    canActivate: [authGuard()]
   },
 
 ];

@@ -1,0 +1,10 @@
+<mat-card appearance="outlined">
+  <img mat-card-image src="/assets/books/{{book.coverImageUrl}} " alt="обложка книги">
+  <mat-card-content>
+    <mat-card-title > {{book.title}} </mat-card-title>
+    <mat-card-subtitle> {{book.authorId.name}} </mat-card-subtitle>
+  </mat-card-content>
+  <button mat-raised-button color="primary" class="deleteBtn" (click)="onDeleteBook(book._id)" *ngIf="this.authService.isAdmin()">
+    delete
+  </button>
+</mat-card>

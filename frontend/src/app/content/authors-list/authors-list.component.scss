@@ -1,13 +1,18 @@
-.books-list{
+.authors-list{
   padding: 20px;
   margin: 0 auto;
   max-width: 1300px;
 }
 
-.book-card{
+.authors-card{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
+}
+
+.pagination {
+  justify-content: center;
 }

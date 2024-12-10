@@ -2,11 +2,10 @@ books
 {
   "_id": "ObjectId",
   "title": "string",                // Название книги
-  "authorIds": ["ObjectId"],        // ID авторов
+  "authorId": ["ObjectId"],        // ID авторов
   "genres": ["string"],             // Жанры (например, ["Фантастика", "Драма"])
   "description": "string",          // Описание книги
   "publicationDate": "Date",        // Дата публикации
-  "isbn": "string",                 // ISBN
   "language": "string",             // Язык книги
   "pages": "number",                // Количество страниц
   "coverImageUrl": "string",        // Ссылка на обложку
@@ -67,7 +66,7 @@ reviews
 
 Связи между коллекциями
 books → authors:
-Связь "многие ко многим" через массив authorIds.
+Связь "многие ко многим" через массив authorId.
 
 users → readingStatuses:
 Связь "один ко многим": каждый пользователь имеет несколько записей в readingStatuses.

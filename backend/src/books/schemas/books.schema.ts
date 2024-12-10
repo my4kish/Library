@@ -6,8 +6,8 @@ export class Book extends Document {
   @Prop({ required: true })
   title: string;
 
-  @Prop({ type: [Types.ObjectId], ref: 'Author', required: true })
-  authorIds: Types.ObjectId[];
+  @Prop({ type: Types.ObjectId, ref: 'Author', required: true })
+  authorId: Types.ObjectId;
 
   @Prop({ type: [String] })
   genres: string[];
@@ -17,9 +17,6 @@ export class Book extends Document {
 
   @Prop()
   publicationDate: Date;
-
-  @Prop({ unique: true })
-  isbn: string;
 
   @Prop()
   language: string;
@@ -43,3 +40,12 @@ export class Book extends Document {
 }
 
 export const BooksSchema = SchemaFactory.createForClass(Book);
+
+BooksSchema.post<Book>('save', async function (doc) {
+  const AuthorModel = this.model('Author');
+  await AuthorModel.findByIdAndUpdate(doc.authorId, {
+    $push: { books: doc._id },
+  });
+});
+
+

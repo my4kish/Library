@@ -1,0 +1,48 @@
+
+
+<div class="dialogForm">
+  <h1>
+    Author form
+  </h1>
+
+  <form [formGroup]="authorData" (ngSubmit)="onSubmit()" >
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>BirthDate</mat-label>
+      <input matInput [matDatepicker]="birthPicker" formControlName="birthDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
+      <mat-datepicker #birthPicker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>DeathDate</mat-label>
+      <input matInput [matDatepicker]="deathPicker" formControlName="deathDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="deathPicker"></mat-datepicker-toggle>
+      <mat-datepicker #deathPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nationality</mat-label>
+      <input matInput formControlName="nationality">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." formControlName="bio"></textarea>
+    </mat-form-field>
+
+    <input type="file" (change)="onFileSelected($event)"/>
+
+    <button mat-raised-button color="success" type="submit" >
+      Submit
+    </button>
+
+  </form>
+</div>
